@@ -3,26 +3,19 @@
 MotorControl::MotorControl() : lastError(0) {}
 
 void MotorControl::setupMotors() {
-    // Uncomment if necessary to correct motor directions:
-    //motors.flipLeftMotor(true);
-    //motors.flipRightMotor(true);
 
-    // Wait for button A to be pressed and released.
+    // Wacht tot knop A is ingedrukt en weer losgelaten.
     buttonA.waitForButton();
 }
 
 void MotorControl::controlMotors(int16_t speedDifference) {
-    // Get individual motor speeds. The sign of speedDifference
-    // determines if the robot turns left or right.
+    // Verkrijg individuele motorsnelheden. Het teken van speedDifference
+    // bepaalt of de robot naar links of naar rechts draait.
     int16_t leftSpeed = (int16_t)maxSpeed + speedDifference;
     int16_t rightSpeed = (int16_t)maxSpeed - speedDifference;
 
-    // Constrain our motor speeds to be between 0 and maxSpeed.
-    // One motor will always be turning at maxSpeed, and the other
-    // will be at maxSpeed-|speedDifference| if that is positive,
-    // else it will be stationary. For some applications, you
-    // might want to allow the motor speed to go negative so that
-    // it can spin in reverse.
+    // Beperk onze motorsnelheden tot tussen 0 en maxSpeed.
+    // Hierdoor draait hij niet om nadat hij wit of een andere kleur gemeten heeft.
     leftSpeed = constrain(leftSpeed, 0, (int16_t)maxSpeed);
     rightSpeed = constrain(rightSpeed, 0, (int16_t)maxSpeed);
 
