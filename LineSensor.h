@@ -5,13 +5,13 @@
 
 class LineSensor {
 public:
-    LineSensor(); // Constructor
+    LineSensor();
     void calibrateSensors(Zumo32U4Motors& motors);
     int16_t readLineSensor();
 
 private:
     Zumo32U4LineSensors lineSensors;
-    unsigned int lineSensorValues[5]; // Use the array size directly here
+    unsigned int lineSensorValues[5];
 };
 
 #endif // LINESENSOR_H
