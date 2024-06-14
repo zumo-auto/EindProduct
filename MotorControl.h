@@ -5,12 +5,12 @@
 
 class MotorControl {
 public:
-    MotorControl(); // Constructor
+    MotorControl();
     void setupMotors();
     void controlMotors(int16_t speedDifference);
     int16_t getLastError() const;
     void setLastError(int16_t error);
-    Zumo32U4Motors& getMotors(); // Getter for motors
+    Zumo32U4Motors& getMotors();
 
 private:
     Zumo32U4Motors motors;
@@ -19,4 +19,4 @@ private:
     static const uint16_t maxSpeed = 320;
 };
 
-#endif // MOTORCONTROL_H
+#endif
