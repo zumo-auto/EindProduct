@@ -17,7 +17,7 @@ void loop() {
     // wat overeenkomt met positie 2000.
     int16_t error = position - 2000;
 
-    // Verkrijg snelheidsverschil van de motoren met behulp van proportionele en afgeleide
+    // Hier sturen wij de motoren met behulp van proportionele en afgeleide
     // PID-termen (de integrale term is over het algemeen niet erg nuttig
     // voor lijnvolging).
     int16_t speedDifference = error / 0.75 + 20 * (error - motorControl.getLastError());
