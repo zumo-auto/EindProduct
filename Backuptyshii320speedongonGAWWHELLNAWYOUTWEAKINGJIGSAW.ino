@@ -1,7 +1,7 @@
 #include "LineSensor.h"
 #include "MotorControl.h"
 
-// Create instances of the LineSensor and MotorControl classes
+// Maak instanties van de LineSensor- en MotorControl-klassen
 LineSensor lineSensor;
 MotorControl motorControl;
 
@@ -13,17 +13,13 @@ void setup() {
 void loop() {
     int16_t position = lineSensor.readLineSensor();
 
-    // Our "error" is how far we are away from the center of the
-    // line, which corresponds to position 2000.
+    // Onze "fout" is hoe ver we van het midden van de lijn verwijderd zijn,
+    // wat overeenkomt met positie 2000.
     int16_t error = position - 2000;
 
-    // Get motor speed difference using proportional and derivative
-    // PID terms (the integral term is generally not very useful
-    // for line following). Here we are using a proportional
-    // constant of 1/4 and a derivative constant of 6, which should
-    // work decently for many Zumo motor choices. You probably
-    // want to use trial and error to tune these constants for your
-    // particular Zumo and line course.
+    // Verkrijg snelheidsverschil van de motoren met behulp van proportionele en afgeleide
+    // PID-termen (de integrale term is over het algemeen niet erg nuttig
+    // voor lijnvolging).
     int16_t speedDifference = error / 0.75 + 20 * (error - motorControl.getLastError());
 
     motorControl.setLastError(error);
