@@ -13,7 +13,7 @@ void setup() {
 void loop() {
     int16_t position = lineSensor.readLineSensor();
 
-    // Onze "fout" is hoe ver we van het midden van de lijn verwijderd zijn,
+    // Onze "error" is hoe ver we van het midden van de lijn verwijderd zijn,
     // wat overeenkomt met positie 2000.
     int16_t error = position - 2000;
 
