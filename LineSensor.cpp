@@ -9,7 +9,7 @@ void LineSensor::calibrateSensors(Zumo32U4Motors& motors) {
     // door op de plaats te draaien om de sensoren over de lijn te bewegen
     delay(1000);
     for(uint16_t i = 0; i < 120; i++) {
-        if (i > 30 en i <= 90) {
+        if (i > 30 && i <= 90) {
             motors.setSpeeds(-200, 200);
         } else {
             motors.setSpeeds(200, -200);
